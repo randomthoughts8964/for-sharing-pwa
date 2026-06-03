@@ -31,7 +31,7 @@ export default async function CollectionDetailPage({ params }: PageProps) {
 
   if (placesError) {
     return (
-      <main className="min-h-screen bg-black text-white p-6">
+      <main className="min-h-screen bg-black px-5 pb-24 pt-8 text-white">
         <h1 className="text-2xl font-bold">Collection Error</h1>
         <pre className="mt-4 whitespace-pre-wrap text-red-400">
           {placesError.message}
@@ -41,23 +41,26 @@ export default async function CollectionDetailPage({ params }: PageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white p-6">
+    <main className="min-h-screen bg-black px-5 pb-24 pt-8 text-white">
       <header className="mb-8">
-        <p className="text-sm uppercase tracking-[0.2em] text-neutral-400">
-          {collection.city} {collection.category ? `• ${collection.category}` : ''}
+        <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">
+          {collection.city}
+          {collection.category ? ` • ${collection.category}` : ''}
         </p>
-        <h1 className="mt-2 text-4xl font-semibold tracking-tight">
+
+        <h1 className="mt-3 text-4xl font-semibold tracking-tight">
           {collection.title}
         </h1>
+
         {collection.description_en && (
-          <p className="mt-3 max-w-xl text-neutral-300">
+          <p className="mt-4 text-sm leading-7 text-neutral-300">
             {collection.description_en}
           </p>
         )}
       </header>
 
       <section className="space-y-4">
-        {collectionPlaces?.map((item) => {
+        {collectionPlaces?.map((item: any) => {
           const place = Array.isArray(item.places) ? item.places[0] : item.places
 
           if (!place) return null
@@ -65,18 +68,19 @@ export default async function CollectionDetailPage({ params }: PageProps) {
           return (
             <article
               key={place.id}
-              className="rounded-2xl border border-neutral-800 bg-neutral-900 p-4"
+              className="rounded-3xl border border-white/10 bg-white/5 p-4"
             >
-              <p className="text-xs uppercase tracking-[0.15em] text-neutral-500">
-                #{item.sort_order} {place.city} {place.area ? `• ${place.area}` : ''}
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#8FAF8C]">
+                #{item.sort_order} {place.city}
+                {place.area ? ` • ${place.area}` : ''}
               </p>
 
-              <h2 className="mt-2 text-xl font-medium">
+              <h2 className="mt-2 text-xl font-medium tracking-tight">
                 {place.name}
               </h2>
 
               {place.short_description_en && (
-                <p className="mt-2 text-sm leading-6 text-neutral-300">
+                <p className="mt-3 text-sm leading-6 text-neutral-300">
                   {place.short_description_en}
                 </p>
               )}
@@ -89,25 +93,25 @@ export default async function CollectionDetailPage({ params }: PageProps) {
 
               <div className="mt-4 flex flex-wrap gap-2">
                 {place.category_main && (
-                  <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300">
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-neutral-300">
                     {place.category_main}
                   </span>
                 )}
 
                 {place.price_level && (
-                  <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300">
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-neutral-300">
                     {place.price_level}
                   </span>
                 )}
 
                 {place.solo_friendly && (
-                  <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300">
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-neutral-300">
                     Solo-friendly
                   </span>
                 )}
 
                 {place.late_night && (
-                  <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-neutral-300">
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-neutral-300">
                     Late night
                   </span>
                 )}
@@ -118,7 +122,7 @@ export default async function CollectionDetailPage({ params }: PageProps) {
                   href={place.google_maps_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 inline-flex rounded-full bg-white px-4 py-2 text-sm font-medium text-black"
+                  className="mt-5 inline-flex items-center rounded-full border border-[#8FAF8C]/40 bg-[#8FAF8C]/15 px-4 py-2 text-sm font-medium text-[#8FAF8C] hover:bg-[#8FAF8C]/25"
                 >
                   Open in Google Maps
                 </a>

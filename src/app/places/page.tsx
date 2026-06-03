@@ -41,7 +41,7 @@ export default async function PlacesPage() {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-neutral-500">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#8FAF8C]">
                   {place.city}
                   {place.area ? ` • ${place.area}` : ''}
                 </p>
@@ -95,7 +95,7 @@ export default async function PlacesPage() {
                 href={place.google_maps_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-flex rounded-full bg-white px-4 py-2 text-sm font-medium text-black"
+                className="mt-5 inline-flex items-center rounded-full border border-[#8FAF8C]/40 bg-[#8FAF8C]/15 px-4 py-2 text-sm font-medium text-[#8FAF8C] hover:bg-[#8FAF8C]/25"
               >
                 Open in Google Maps
               </a>

@@ -28,8 +28,8 @@ export default function BottomNav() {
               href={item.href}
               className={`rounded-full px-4 py-2 text-sm font-medium transition ${
                 isActive
-                   ? 'bg-white text-black shadow-sm'
-                   : 'text-neutral-300 hover:text-white'
+                  ? 'border border-[#8FAF8C]/40 bg-[#8FAF8C]/20 text-[#8FAF8C]'
+                  : 'text-neutral-400 hover:text-white'
               }`}
             >
               {item.label}

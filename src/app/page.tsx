@@ -36,7 +36,10 @@ export default async function HomePage() {
       <section className="mb-10">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-xl font-medium">Collections</h2>
-          <Link href="/collections" className="text-sm text-neutral-500 hover:text-white">
+          <Link
+            href="/collections"
+            className="text-sm text-neutral-500 hover:text-white"
+          >
             View all
           </Link>
         </div>
@@ -49,7 +52,8 @@ export default async function HomePage() {
               className="block rounded-3xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/[0.08]"
             >
               <p className="text-[11px] uppercase tracking-[0.2em] text-neutral-500">
-                {collection.city} {collection.category ? `• ${collection.category}` : ''}
+                {collection.city}
+                {collection.category ? ` • ${collection.category}` : ''}
               </p>
 
               <h3 className="mt-2 text-2xl font-medium tracking-tight">
@@ -69,7 +73,10 @@ export default async function HomePage() {
       <section>
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-xl font-medium">Featured Places</h2>
-          <Link href="/places" className="text-sm text-neutral-500 hover:text-white">
+          <Link
+            href="/places"
+            className="text-sm text-neutral-500 hover:text-white"
+          >
             Browse all
           </Link>
         </div>
@@ -80,7 +87,7 @@ export default async function HomePage() {
               key={place.id}
               className="rounded-3xl border border-white/10 bg-white/5 p-4"
             >
-              <p className="text-[11px] uppercase tracking-[0.2em] text-neutral-500">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#8FAF8C]">
                 {place.city}
                 {place.area ? ` • ${place.area}` : ''}
               </p>
@@ -100,7 +107,7 @@ export default async function HomePage() {
                   href={place.google_maps_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex rounded-full bg-white px-4 py-2 text-sm font-medium text-black"
+                  className="mt-4 inline-flex items-center rounded-full border border-[#8FAF8C]/40 bg-[#8FAF8C]/15 px-4 py-2 text-sm font-medium text-[#8FAF8C] hover:bg-[#8FAF8C]/25"
                 >
                   Open in Google Maps
                 </a>
